@@ -25,5 +25,38 @@
       <span class="price">{{product.created_at| date:'longDate'}}</span>
     </li>
   </ul>
+
+  <div class="under_10">
+    <h1>Under $10</h1>
+    <ul ng-repeat="product in products | between:0:10">
+      <span class="name">{{product.name}}</span> - 
+      <!-- values can be piped into filters -->
+      <span class="price">{{product.price| currency}}</span> - 
+      <!-- filters can take arguments -->
+      <span class="price">{{product.created_at| date:'longDate'}}</span>
+    </ul>
+  </div>
+
+  <div class="under_20">
+    <h1>Under $20</h1>
+    <ul ng-repeat="product in products | between:10:20">
+      <span class="name">{{product.name}}</span> - 
+      <!-- values can be piped into filters -->
+      <span class="price">{{product.price| currency}}</span> - 
+      <!-- filters can take arguments -->
+      <span class="price">{{product.created_at| date:'longDate'}}</span>
+    </ul>
+  </div>
+
+  <div class="under_50">
+    <h1>Under $50</h1>
+    <ul ng-repeat="product in products | between:20:50">
+      <span class="name">{{product.name}}</span> - 
+      <!-- values can be piped into filters -->
+      <span class="price">{{product.price| currency}}</span> - 
+      <!-- filters can take arguments -->
+      <span class="price">{{product.created_at| date:'longDate'}}</span>
+    </ul>
+  </div>
 </body>
 </html>

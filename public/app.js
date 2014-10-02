@@ -18,3 +18,17 @@ angularPDX.controller('ProductsCtrl', ['$scope', 'Product', function($scope, Pro
     $scope.products = response;
   });
 }]);
+
+angularPDX.filter('between', function() {
+  return function(input, min, max) {
+    if (typeof input !== 'undefined') {
+      selected = [];
+      for(x=0; x < input.length; x++) {
+        if (input[x].price < max && input[x].price >= min) {
+          selected.push(input[x]);
+        }
+      }
+      return selected;
+    }
+  }
+});
