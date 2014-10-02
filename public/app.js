@@ -32,3 +32,13 @@ angularPDX.filter('between', function() {
     }
   }
 });
+
+// Templates in part allow reuse of HTML
+// Events can be attached and bound as well
+// By default attributes are matched, but you can match via element, attribute, or class
+angularPDX.directive('product', function() {
+  return {
+    // Uses static file for template
+    templateUrl: '_product.html'
+  };
+});
