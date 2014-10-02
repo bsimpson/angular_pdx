@@ -1,0 +1,20 @@
+<!doctype html>
+<!-- Identify this as an Angular segment of code -->
+<html lang="en" ng-app="AngularPDX">
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<!-- Bind to a particular Angular controller - there can be many, and they can nest -->
+<body ng-controller="ProductsCtrl">
+
+  <!-- Basic Angular template syntax - objects inside brackets are evaluated -->
+  <p>Nothing here {{'yet' + '!'}}</p>
+
+  <!-- set via the controller -->
+  {{ products }}
+</body>
+</html>
