@@ -16,10 +16,13 @@
 
   <!-- set via the controller -->
   <ul>
-    <! -- ng-repeat iterates over collections -->
+    <!-- ng-repeat iterates over collections -->
     <li ng-repeat="product in products">
       <span class="name">{{product.name}}</span> - 
-      <span class="price">{{product.price}}</span>
+      <!-- values can be piped into filters -->
+      <span class="price">{{product.price| currency}}</span> - 
+      <!-- filters can take arguments -->
+      <span class="price">{{product.created_at| date:'longDate'}}</span>
     </li>
   </ul>
 </body>
