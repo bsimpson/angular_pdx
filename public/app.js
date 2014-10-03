@@ -25,6 +25,24 @@ angularPDX.controller('ProductsCtrl', ['$scope', 'Product', function($scope, Pro
     $scope.products.push(product)
     $scope.product = {}
   }
+
+  // Bind to controller action for ng-click event
+  $scope.toggleDateFormatting = function() {
+    switch($scope.dateFormat) {
+      case 'short':
+        $scope.dateFormat = 'medium';
+        break;
+      case 'medium':
+        $scope.dateFormat = 'fullDate';
+        break;
+      case 'fullDate':
+        $scope.dateFormat = 'short';
+        break;
+      default:
+        $scope.dateFormat = 'fullDate';
+        break;
+    }
+  }
 }]);
 
 angularPDX.filter('between', function() {

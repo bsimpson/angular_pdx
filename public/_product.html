@@ -2,4 +2,6 @@
 <!-- values can be piped into filters -->
 <span class="price">{{product.price| currency}}</span> - 
 <!-- filters can take arguments -->
-<span class="price">{{product.created_at| date:'longDate'}}</span>
+<span class="price" ng-click="toggleDateFormatting()">
+  {{product.created_at| date:dateFormat}}
+</span>
