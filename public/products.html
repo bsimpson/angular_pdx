@@ -1,0 +1,48 @@
+<!-- Basic Angular template syntax - objects inside brackets are evaluated -->
+<p>Nothing here {{'yet' + '!'}}</p>
+
+<!-- set via the controller -->
+<ul>
+  <!-- ng-repeat iterates over collections -->
+  <li ng-repeat="product in products">
+    <div product></div>
+  </li>
+</ul>
+
+<div class="under_10">
+  <h1>Under $10</h1>
+  <ul>
+    <li ng-repeat="product in products | between:0:10">
+      <div product></div>
+    </li>
+  </ul>
+</div>
+
+<div class="under_20">
+  <h1>Under $20</h1>
+  <ul>
+    <li ng-repeat="product in products | between:10:20">
+      <div product></div>
+    </li>
+  </ul>
+</div>
+
+<div class="under_50">
+  <h1>Under $50</h1>
+  <ul>
+    <li ng-repeat="product in products | between:20:50">
+      <div product></div>
+    </li>
+  </ul>
+</div>
+
+<section class="add_product">
+  <!-- Form to add product to collection -->
+  <form action="#" ng-submit="addProduct(product)">
+    <label>Name</label>
+    <input type="text" ng-model="product.name" />
+    <label>Price</label>
+    <input type="text" ng-model="product.price" />
+    <input type="submit" value="Add product" />
+  </form>
+</section>

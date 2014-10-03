@@ -1,11 +1,11 @@
 // Define our Angular module
 // Everything will be attached to this module instance - controllers, factories, etc
-var angularPDX = angular.module('AngularPDX', ['ngResource']);
+var angularPDX = angular.module('AngularPDX', ['ngResource', 'ngRoute']);
 
 // Note the dependency injection (DI) of the $resource object)
 angularPDX.factory('Product', ['$resource', function($resource) {
   // Resource object to wrap RESTful resource
-  return $resource('/products');
+  return $resource('/products/:id');
 }]);
 
 // Our controller binds to items within the context of ng-controller="ProductsCtrl"
@@ -45,6 +45,10 @@ angularPDX.controller('ProductsCtrl', ['$scope', 'Product', function($scope, Pro
   }
 }]);
 
+angularPDX.controller('ProductDetailsCtrl', ['$scope', '$routeParams', 'Product', function($scope, $routeParams, Product) {
+  $scope.product = Product.get({ id: $routeParams.productId });
+}]);
+
 angularPDX.filter('between', function() {
   return function(input, min, max) {
     if (typeof input !== 'undefined') {
@@ -68,3 +72,18 @@ angularPDX.directive('product', function() {
     templateUrl: '_product.html'
   };
 });
+
+angularPDX.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.
+    when('/products', {
+      templateUrl: 'products.html',
+      controller: 'ProductsCtrl'
+    }).
+    when('/product/:productId', {
+      templateUrl: 'product.html',
+      controller: 'ProductDetailsCtrl'
+    }).
+    otherwise({
+      redirectTo: '/products'
+    });
+}]);
