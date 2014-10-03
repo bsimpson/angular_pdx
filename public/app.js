@@ -17,6 +17,14 @@ angularPDX.controller('ProductsCtrl', ['$scope', 'Product', function($scope, Pro
     // then is executed from $promise and assigns products as property on $scope
     $scope.products = response;
   });
+
+  $scope.addProduct = function(product) {
+    product.created_at = new Date();
+    // Push new product onto collection
+    // triggers $scope.$apply()
+    $scope.products.push(product)
+    $scope.product = {}
+  }
 }]);
 
 angularPDX.filter('between', function() {

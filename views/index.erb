@@ -48,5 +48,16 @@
       </li>
     </ul>
   </div>
+
+  <section class="add_product">
+    <!-- Form to add product to collection -->
+    <form action="#" ng-submit="addProduct(product)">
+      <label>Name</label>
+      <input type="text" ng-model="product.name" />
+      <label>Price</label>
+      <input type="text" ng-model="product.price" />
+      <input type="submit" value="Add product" />
+    </form>
+  </section>
 </body>
 </html>
